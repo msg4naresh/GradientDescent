@@ -6,7 +6,7 @@ def costFunction(theta0,theta1,data):
          y=data[i,1]
          x=data[i,0]
          totalError+=(y-(theta1*x+theta0))**2
-    print(totalError/float(len(data)))
+    return totalError/float(len(data))
     
 def gradientDescent(theta0,theta1,data,learningRate):
     derivativetheta0=0
@@ -24,6 +24,7 @@ def gradientDescentConverger(theta0,theta1,data,leraningrate,iterations):
    
     for i in range(0,iterations):
      [theta0, theta1]=gradientDescent(theta0,theta1,data,leraningrate)
+     print(costFunction(theta0,theta1,data),"Iterations","theta0",theta0,"theta1",theta1)
     
     return[theta0,theta1]
     
@@ -31,15 +32,11 @@ def gradientDescentConverger(theta0,theta1,data,leraningrate,iterations):
 def run():
     data=genfromtxt("data.csv", delimiter=",")
     learningRate=0.0001
-    theta0=24
-    theta1=14
-    iterations=200
+    theta0=20
+    theta1=40
+    iterations=5000
     costFunction(theta0,theta1,data)
-    [theta0, theta1]=gradientDescent(theta0,theta1,data,learningRate)
     [theta0, theta1]=gradientDescentConverger(theta0,theta1,data,learningRate,iterations)
-    print(theta0)
-    print(theta1)
-    costFunction(theta0,theta1,data)
    
 if __name__ == '__main__':
     run()
