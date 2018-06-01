@@ -30,7 +30,7 @@ def gradientDescentConverger(theta0,theta1,data,leraningrate,iterations):
     
         
 def run():
-    data=genfromtxt("data.csv", delimiter=",")
+    data=genfromtxt("Lineardata.csv", delimiter=",")
     learningRate=0.0001
     theta0=20
     theta1=40
